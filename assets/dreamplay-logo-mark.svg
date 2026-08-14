@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Logo AI · 双生星 · Venn 交集挖出 Play 三角（负空间） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" fill="#0c1322"/>
+  <g transform="translate(512 512)">
+    <!-- 左圆（cyan，AI） -->
+    <circle cx="-155" cy="0" r="185" fill="#5fb8ff"/>
+    <!-- 右圆（gold，游戏） -->
+    <circle cx="155" cy="0" r="185" fill="#f6dd8c"/>
+    <!-- 重叠区挖出 Play 三角（负空间） -->
+    <path d="M -52 -82 L 82 0 L -52 82 Z" fill="#0c1322"/>
+    <!-- 三角内更小一层（粉，互动） -->
+    <path d="M -22 -34 L 34 0 L -22 34 Z" fill="#ff5ca8"/>
+  </g>
+</svg>

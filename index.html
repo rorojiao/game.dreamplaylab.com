@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#" data-title-ja="株式会社ドリームプレイ — DreamPlay Inc. | 次世代ゲーム × AI" data-title-en="DreamPlay Inc. | Next-Gen Games × AI">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0c1322">
+<title>株式会社ドリームプレイ — DreamPlay Inc. | 次世代ゲーム × AI</title>
+<meta name="description" content="株式会社ドリームプレイ（DreamPlay Inc.）は、AIインタラクティブムービーゲームと戦略カードゲームの二大製品ラインで、次世代のゲームを世界中のプレイヤーへお届けします。 / DreamPlay Inc. delivers next-gen games worldwide through AI interactive movie games and strategy card games.">
+<meta property="og:title" content="株式会社ドリームプレイ — DreamPlay Inc.">
+<meta property="og:description" content="AI × ゲーム。次世代のゲーム体験を、もっと早く世界中のプレイヤーへ届けます。 / AI × Games — bringing next-gen game experiences to players worldwide, faster.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://game.dreamplaylab.com/">
+<meta property="og:image" content="https://game.dreamplaylab.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DreamPlay Inc. — Next-Gen Games × AI（次世代ゲーム × AI）">
+<link rel="canonical" href="https://game.dreamplaylab.com/">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="mask-icon" href="assets/dreamplay-logo-mark.svg" color="#5fb8ff">
+<style>
+  /* DreamPlay shared brand tokens — single source for both sites.
+     Injected by scripts/build.mjs at the tokens marker comment in each site's <style>.
+     Hex equivalents kept as comments for audits against specs/dreamplay-sites/design.md. */
+  :root{
+    /* 暗色主题设计 token（沿用 ezjoygames oklch 体系） */
+    --bg: oklch(14.6% 0.020 268.3);        /* #0A0F1C 深色主背景 */
+    --surface: oklch(21.0% 0.017 248.7);   /* #18212D 内容表面 */
+    --surface-2: oklch(25.5% 0.026 256);
+    --fg: oklch(95.8% 0.015 77.1);
+    --muted: oklch(77.8% 0.026 263.3);
+    --border: oklch(34.6% 0.043 273.2 / 0.6);
+    --accent: oklch(65.0% 0.240 15.0);     /* 品牌红 */
+    --cyan: oklch(81.9% 0.128 222.0);      /* #67D5FF AI、链接与主要行动色 */
+    --mint: oklch(79.3% 0.124 171.2);      /* #86D9C1 可验证状态、流程完成 */
+    --gold: oklch(77.0% 0.113 84.1);       /* #E1BE69 会议重点、阶段编号、游戏强调 */
+    --pink: oklch(69.8% 0.210 352.0);      /* 互动 · 粉 */
+    --font-display: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "PingFang SC", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+    --max: 1120px;
+    --header-h: 68px;
+    color-scheme: dark;
+  }
+  /* DreamPlay shared component styles — single source for both sites.
+     Extracted verbatim from the pre-migration game site (commit 6ea4c1a) so the
+     game site renders identically; the corporate site reuses the same components.
+     Injected by scripts/build.mjs at the components marker comment, after tokens. */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  /* —— 双语显隐 —— */
+  body.lang-en [data-ja]{display:none}
+  body.lang-ja [data-en]{display:none}
+  a{color:inherit;text-decoration:none;transition:color .18s ease}
+  a:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:4px}
+  img{display:block;max-width:100%;height:auto}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:80px 0;position:relative}
+  section + section::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(80%,640px);height:1px;background:linear-gradient(90deg,transparent,var(--border) 30%,var(--border) 70%,transparent);opacity:.6}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--cyan);
+    display:inline-flex;align-items:center;gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--cyan);opacity:.6}
+  .eyebrow.gold{color:var(--gold)}
+  .eyebrow.gold::before{background:var(--gold)}
+  h2.title{
+    font-family:var(--font-display);
+    font-size:clamp(26px,4vw,40px);
+    font-weight:700;letter-spacing:-.01em;line-height:1.25;
+    margin-bottom:14px;max-width:24ch;
+  }
+  .lede{color:var(--muted);font-size:16.5px;max-width:62ch;margin-bottom:14px}
+  .section-head{margin-bottom:40px}
+
+  /* —— 导航 —— */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:oklch(14.6% 0.020 268.3 / 0.82);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);gap:20px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-family:var(--font-display);font-size:16px;letter-spacing:.02em}
+  .brand img{width:34px;height:34px;border-radius:8px}
+  .brand small{display:block;font-size:10.5px;font-weight:500;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-mono);margin-top:1px}
+  .nav-links{display:flex;align-items:center;gap:8px}
+  .nav-links a{font-size:14px;color:var(--muted);transition:color .2s;position:relative;padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border-radius:8px}
+  .nav-links a:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;background:oklch(81.9% 0.128 222.0 / 0.08)}
+  .nav-links a:hover{color:var(--fg);background:oklch(81.9% 0.128 222.0 / 0.06)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--cyan);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .lang-switch{display:flex;align-items:center;gap:2px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:3px}
+  .lang-switch button{
+    background:none;border:none;color:var(--muted);
+    font-family:var(--font-mono);font-size:12px;font-weight:600;
+    padding:8px 14px;border-radius:7px;cursor:pointer;transition:all .18s ease;letter-spacing:.04em;min-height:36px;min-width:44px;
+  }
+  .lang-switch button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+  .lang-switch button.active{background:var(--cyan);color:#0a1020}
+  .lang-switch button:not(.active):hover{color:var(--fg)}
+
+  /* —— 按钮 —— */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:12px;font-weight:600;font-size:15px;
+    font-family:var(--font-body);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;border:none;min-height:44px;position:relative;
+  }
+  .btn:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+  .btn:active{transform:translateY(0) scale(.98)}
+  .btn-primary{background:var(--cyan);color:#0a1020}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px oklch(81.9% 0.128 222.0 / 0.35)}
+  .btn-ghost{background:var(--surface);color:var(--fg);border:1px solid var(--border)}
+  .btn-ghost:hover{border-color:var(--gold);transform:translateY(-2px)}
+
+  /* —— 联系信息与表单 —— */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:start}
+  .contact-info .info-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+  .contact-info .ic{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--cyan)}
+  .contact-info .ic svg{width:20px;height:20px}
+  .contact-info .info-row .t{font-size:12px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+  .contact-info .info-row .v{font-size:15px;color:var(--fg);margin-top:2px;word-break:break-all}
+  .contact-info .info-row .v a:hover{color:var(--cyan)}
+  .form-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px}
+  .form-card h3{font-family:var(--font-display);font-size:21px;font-weight:700;margin-bottom:6px}
+  .form-card .sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:7px;font-family:var(--font-mono);letter-spacing:.04em}
+  .field input,.field textarea,.field select{
+    width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;
+    color:var(--fg);padding:12px 14px;font-size:14.5px;font-family:var(--font-body);
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px oklch(81.9% 0.128 222.0 / 0.18), 0 1px 0 oklch(81.9% 0.128 222.0 / 0.2)}
+  .field textarea{min-height:96px;resize:vertical}
+  .mail-draft{
+    width:100%;background:oklch(12% 0.02 268 / 0.6);border:1px dashed var(--border);border-radius:10px;
+    color:var(--mint);font-family:var(--font-mono);font-size:12.5px;line-height:1.7;
+    padding:14px;min-height:120px;resize:none;white-space:pre-wrap;
+  }
+  .form-actions{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+  .form-note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+
+  /* —— Footer —— */
+  footer{border-top:1px solid var(--border);padding:36px 0 32px;margin-top:32px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foot-brand{display:flex;align-items:center;gap:12px}
+  .foot-brand img{width:30px;height:30px;border-radius:7px}
+  .foot-brand span{font-weight:700;font-family:var(--font-display);font-size:14px}
+  .foot-copy{font-size:12.5px;color:var(--muted);max-width:56ch;line-height:1.6}
+  .foot-site{font-size:12.5px;color:var(--muted);width:100%}
+  .foot-site a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
+  .foot-site a:hover{color:var(--fg)}
+
+  /* —— 共享响应式（来自原站 980/720/560 断点中与组件相关的规则） —— */
+  @media (max-width:980px){
+    .contact-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    section{padding:64px 0}
+    .nav-links{display:none}
+    .nav-inner{justify-content:space-between}
+  }
+  @media (max-width:560px){
+    section{padding:52px 0}
+    .form-card{padding:22px 18px}
+    .btn{width:100%;justify-content:center}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  }
+
+  /* —— Hero —— */
+  .hero{position:relative;overflow:hidden;padding:88px 0 80px}
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(120% 90% at 78% 18%, oklch(81.9% 0.128 222.0 / 0.20), transparent 55%),
+      radial-gradient(90% 70% at 12% 80%, oklch(77.0% 0.113 84.1 / 0.14), transparent 60%),
+      linear-gradient(180deg, oklch(14.6% 0.020 268.3 / 0.72), oklch(14.6% 0.020 268.3 / 0.96) 70%, var(--bg)),
+      url("assets/lynx-hero-bg.jpg") center 30%/cover no-repeat;
+  }
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, var(--bg) 0%, transparent 38%)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{
+    font-family:var(--font-display);
+    font-size:clamp(32px,5.6vw,60px);
+    font-weight:800;line-height:1.15;letter-spacing:-.015em;
+    max-width:18ch;margin-bottom:20px;
+  }
+  .hero h1 .glow{background:linear-gradient(120deg, var(--cyan), var(--mint) 45%, var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .hero-lede{font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:54ch;margin-bottom:28px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:780px}
+  .stat{background:oklch(21.0% 0.017 248.7 / 0.55);border:1px solid var(--border);border-radius:14px;padding:18px 20px;backdrop-filter:blur(6px)}
+  .stat .num{font-family:var(--font-mono);font-size:clamp(28px,3.4vw,38px);font-weight:700;line-height:1;letter-spacing:-.02em}
+  .stat .num.c1{color:var(--cyan)}
+  .stat .num.c2{color:var(--gold)}
+  .stat .num.c3{color:var(--mint)}
+  .stat .lbl{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+  /* —— Proof —— */
+  .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .metric{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 20px;transition:transform .25s, border-color .25s}
+  .metric:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:0 12px 32px oklch(81.9% 0.128 222.0 / 0.12)}
+  .metric .v{font-family:var(--font-mono);font-size:clamp(30px,3.6vw,44px);font-weight:700;line-height:1;letter-spacing:-.02em}
+  .metric:nth-child(1) .v{color:var(--cyan)}
+  .metric:nth-child(2) .v{color:var(--gold)}
+  .metric:nth-child(3) .v{color:var(--pink)}
+  .metric:nth-child(4) .v{color:var(--mint)}
+  .metric .k{font-size:13px;font-weight:600;color:var(--fg);margin:10px 0 6px}
+  .metric .note{font-size:13px;color:var(--muted);line-height:1.6}
+
+  /* —— Products —— */
+  .world{background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;margin-bottom:20px}
+  .world-head{padding:28px 28px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  .world-head h3{font-family:var(--font-display);font-size:clamp(22px,2.4vw,28px);font-weight:700;letter-spacing:-.01em}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:var(--font-mono);font-size:11px;padding:5px 11px;border-radius:6px;background:oklch(81.9% 0.128 222.0 / 0.12);color:var(--cyan);letter-spacing:.04em;border:1px solid oklch(81.9% 0.128 222.0 / 0.2)}
+  .tag.g{background:oklch(77.0% 0.113 84.1 / 0.12);color:var(--gold);border-color:oklch(77.0% 0.113 84.1 / 0.2)}
+  .world-summary{padding:12px 28px 22px;color:var(--muted);font-size:14.5px;max-width:68ch;line-height:1.7}
+  .gallery{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;border-top:1px solid var(--border)}
+  .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.95);transition:transform .4s, filter .4s}
+  .gallery.g4 img{aspect-ratio:5/4}
+  .gallery img:hover{transform:scale(1.04);filter:saturate(1.08)}
+
+  /* —— Pipeline —— */
+  .pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;position:relative}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 18px;position:relative;transition:transform .25s, border-color .25s}
+  .step:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 24px oklch(77.0% 0.113 84.1 / 0.12)}
+  .step .i{font-family:var(--font-mono);font-size:13px;color:var(--gold);letter-spacing:.1em;margin-bottom:10px}
+  .step h3{font-size:15.5px;font-weight:700;margin-bottom:6px;font-family:var(--font-display)}
+  .step p{font-size:13px;color:var(--muted);line-height:1.65}
+
+  /* —— Cooperation —— */
+  .modes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .mode{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 22px;transition:transform .25s, border-color .25s, background .25s}
+  .mode:hover{transform:translateY(-4px);background:var(--surface-2)}
+  .mode .code{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:12px;font-family:var(--font-mono);font-weight:700;font-size:17px;letter-spacing:.04em;margin-bottom:14px}
+  .mode:nth-child(1) .code{background:oklch(81.9% 0.128 222.0 / 0.16);color:var(--cyan);border:1px solid oklch(81.9% 0.128 222.0 / 0.3)}
+  .mode:nth-child(2) .code{background:oklch(77.0% 0.113 84.1 / 0.16);color:var(--gold);border:1px solid oklch(77.0% 0.113 84.1 / 0.3)}
+  .mode:nth-child(3) .code{background:oklch(69.8% 0.210 352.0 / 0.16);color:var(--pink);border:1px solid oklch(69.8% 0.210 352.0 / 0.3)}
+  .mode:nth-child(4) .code{background:oklch(79.3% 0.124 171.2 / 0.16);color:var(--mint);border:1px solid oklch(79.3% 0.124 171.2 / 0.3)}
+  .mode h3{font-size:16.5px;font-weight:700;margin-bottom:8px;font-family:var(--font-display)}
+  .mode p{font-size:13px;color:var(--muted);line-height:1.7}
+
+  /* —— 响应式 —— */
+  @media (max-width:980px){
+    .proof-grid{grid-template-columns:repeat(2,1fr)}
+    .pipe{grid-template-columns:repeat(2,1fr)}
+    .modes{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:720px){
+    .hero{padding:68px 0 60px}
+    .hero-cta{margin-bottom:36px}
+    .stats{grid-template-columns:1fr;gap:10px;max-width:none}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:32px}
+    .proof-grid,.pipe,.modes{grid-template-columns:1fr}
+    .world-head{padding:22px 18px 0}
+    .world-summary{padding:10px 18px 18px}
+    .gallery{grid-auto-flow:row;grid-template-columns:repeat(2,1fr)}
+    .hero-cta{flex-direction:column}
+  }
+</style>
+</head>
+<body class="lang-ja">
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="DreamPlay Inc.">
+      <img src="assets/dreamplay-logo-mark.png" alt="DreamPlay logo">
+      <span>株式会社ドリームプレイ<small>DreamPlay Inc.</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#proof"><span data-ja>実績</span><span data-en>Track Record</span></a>
+      <a href="#products"><span data-ja>製品ライン</span><span data-en>Product Lines</span></a>
+      <a href="#pipeline"><span data-ja>AIパイプライン</span><span data-en>AI Pipeline</span></a>
+      <a href="#cooperation"><span data-ja>協業モデル</span><span data-en>Partnerships</span></a>
+      <a href="#contact"><span data-ja>お問い合わせ</span><span data-en>Contact</span></a>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button data-lang="ja" class="active" aria-pressed="true">JA</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow"><span data-ja>AI × ゲーム — 次世代体験</span><span data-en>AI × Games — Next-Gen Experiences</span></div>
+    <h1>
+      <span data-ja><span class="glow">次世代ゲーム</span>を、もっと早く<br>世界中のプレイヤーへ届けます。</span>
+      <span data-en><span class="glow">Next-gen games</span>, delivered faster<br>to players worldwide.</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-ja>ドリームプレイは、IP×メディアミックスと海外カードゲームの実績を土台に、「猫系戦略カードゲーム」と「AIインタラクティブムービーゲーム」の二大製品ラインを推進。パブリッシャー向けに、製品共創・コンテンツ制作・ローカライズをワンストップでご提供します。</span>
+      <span data-en>Building on proven IP adaptations and global card-game experience, DreamPlay advances two product lines: cat-themed strategy card games and AI interactive movie games. For publishers, we deliver product co-creation, content production, and localization as a single end-to-end offering.</span>
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#cooperation"><span data-ja>協業のご相談</span><span data-en>Discuss a Partnership</span></a>
+      <a class="btn btn-ghost" href="#products"><span data-ja>製品ラインを見る</span><span data-en>View Product Lines</span></a>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="num c1"><span data-ja>約38億円</span><span data-en>≈$25M</span></div>
+        <div class="lbl"><span data-ja>過去タイトルの月商ピーク（『花千骨』・中国IP）</span><span data-en>Monthly revenue peak (The Journey of Flower / Huaqiangu)</span></div>
+      </div>
+      <div class="stat">
+        <div class="num c2">1.4<span data-ja>億人</span><span data-en>140M+</span></div>
+        <div class="lbl"><span data-ja>累計登録ユーザー</span><span data-en>Cumulative registered users</span></div>
+      </div>
+      <div class="stat">
+        <div class="num c3">30<span data-ja>名</span><span data-en>+</span></div>
+        <div class="lbl"><span data-ja>精鋭チーム・並行開発</span><span data-en>Elite team, parallel development</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Proof -->
+<section id="proof">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow gold"><span data-ja>実績</span><span data-en>Track Record</span></span>
+      <h2 class="title"><span data-ja>実績で語る、次の新作への確信。</span><span data-en>A proven track record that fuels the next hit.</span></h2>
+      <p class="lede"><span data-ja>メディアミックスから海外カードゲーム、IPライセンスからインタラクティブノベルまで。コンテンツレビュー・開発納品・パブリッシング準備を、パートナーがそのまま活用できる形で提供します。</span><span data-en>From cross-media franchises to global card titles, IP adaptation to interactive narrative — we package content review, delivery, and publishing readiness into capabilities partners can put to work immediately.</span></p>
+    </div>
+    <div class="proof-grid">
+      <div class="metric">
+        <div class="v"><span data-ja>約38億円</span><span data-en>≈$25M</span></div>
+        <div class="k"><span data-ja>『花千骨』モバイル 月商ピーク</span><span data-en>The Journey of Flower (Huaqiangu) — monthly revenue peak</span></div>
+        <div class="note"><span data-ja>大ヒットしたメディアミックス作品に参画。本格派MMORPG・IP翻案・大規模マネタイズ運営の実績。</span><span data-en>Contributed to a breakout cross-media title — proving hardcore MMORPG design, IP adaptation, and large-scale monetization operations.</span></div>
+      </div>
+      <div class="metric">
+        <div class="v">1.4<span data-ja>億人</span><span data-en>140M+</span></div>
+        <div class="k"><span data-ja>累計登録ユーザー</span><span data-en>Cumulative registered users</span></div>
+        <div class="note"><span data-ja>1億人規模のユーザー到達経験が、コンテンツ設計・広告クリエイティブ・イベント運営の展開ペースを安定させます。</span><span data-en>Hundred-million-user scale experience stabilizes our playbooks for content design, UA creatives, and event cadence.</span></div>
+      </div>
+      <div class="metric">
+        <div class="v"><span data-ja>約420億円</span><span data-en>≈$280M</span></div>
+        <div class="k"><span data-ja>関連IPの総売上</span><span data-en>Related IP total revenue</span></div>
+        <div class="note"><span data-ja>IPライセンス・ファンコミュニティ・コンテンツ監修・マルチチャネル展開に精通。製品をより大きなビジネスエコシステムに位置づけられます。</span><span data-en>Deep expertise in IP licensing, fan communities, content supervision, and multi-channel rollouts — placing products inside larger business ecosystems.</span></div>
+      </div>
+      <div class="metric">
+        <div class="v"><span data-ja>週次</span><span data-en>Weekly</span></div>
+        <div class="k"><span data-ja>AIプロトタイプ検証サイクル</span><span data-en>AI prototype iteration cycle</span></div>
+        <div class="note"><span data-ja>テーマ設計・コアループ試作・広告クリエイティブ検証をAIで高速化。方向性を並行検証してから投資規模を決定します。</span><span data-en>AI accelerates theme design, core-loop prototyping, and UA creative testing — so you validate direction in parallel before scaling investment.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span data-ja>製品ライン</span><span data-en>Product Lines</span></span>
+      <h2 class="title"><span data-ja>カードゲームとインタラクティブムービー、二つの世界。</span><span data-en>Two worlds: card games and interactive movies.</span></h2>
+      <p class="lede"><span data-ja>女性向け・IP・インタラクティブノベルに強い「猫系戦略カードゲーム」と、古物から記憶を読み解く「時代の鏡」インタラクティブムービーゲーム。両ラインを並行推進中です。</span><span data-en>A cat-themed strategy card game built for female-focused and IP audiences, plus “Mirror of Ages” — an interactive movie game where touching antiques unlocks memories. Both lines are in active, parallel development.</span></p>
+    </div>
+
+    <article class="world">
+      <div class="world-head">
+        <h3><span data-ja>猫系戦略カードゲーム＋ソーシャル</span><span data-en>Cat-Themed Strategy Card Game + Social</span></h3>
+        <div class="tags">
+          <span class="tag g"><span data-ja>鑑定メカニクス</span><span data-en>Appraisal mechanics</span></span>
+          <span class="tag"><span data-ja>三人のヒロイン</span><span data-en>Three heroine arcs</span></span>
+          <span class="tag"><span data-ja>AIノベル</span><span data-en>AI narrative</span></span>
+          <span class="tag g"><span data-ja>ショートドラマ展開</span><span data-en>Short-form drama pacing</span></span>
+          <span class="tag"><span data-ja>IAAファネル</span><span data-en>IAA funnel</span></span>
+        </div>
+      </div>
+      <p class="world-summary"><span data-ja>インタラクティブショートドラマ、ビジュアルノベル、AIパートナー、女性向けタイトル、映像IPのゲーム化に最適です。ストーリー駆動のインタラクションで高関心ユーザーを絞り込み、精密な導線設計でコンテンツマネタイズを実現します。40話構成・キャラクターボード・ポスター・絵コンテ・アセット表まで、制作基盤が整っています。</span><span data-en>Ideal for interactive short-form drama, visual novels, AI companions, female-focused titles, and film-IP game adaptations. Story-driven interaction filters high-intent users for precise UA and content monetization. Production foundation is ready: 40-episode structure, character boards, posters, storyboards, and asset tables.</span></p>
+      <div class="gallery g3">
+        <img src="assets/cat-gameplay.jpg" alt="Cat-themed card game — gameplay / 猫系カードゲーム プレイ画面" loading="lazy">
+        <img src="assets/cat-boss.jpg" alt="Cat-themed card game — boss battle / 猫系カードゲーム ボス戦" loading="lazy">
+        <img src="assets/cat-fishing.jpg" alt="Cat-themed card game — fishing / 猫系カードゲーム 釣り" loading="lazy">
+      </div>
+    </article>
+
+    <article class="world">
+      <div class="world-head">
+        <h3><span data-ja>時代の鏡 — インタラクティブムービーゲーム</span><span data-en>Mirror of Ages — Interactive Movie Game</span></h3>
+        <div class="tags">
+          <span class="tag"><span data-ja>古物連動</span><span data-en>Artifact-triggered</span></span>
+          <span class="tag g"><span data-ja>ルート分岐</span><span data-en>Branching narratives</span></span>
+          <span class="tag"><span data-ja>感情インタラクション</span><span data-en>Emotional interaction</span></span>
+          <span class="tag g"><span data-ja>収束エンディング</span><span data-en>Convergent ending</span></span>
+        </div>
+      </div>
+      <p class="world-summary"><span data-ja>プレイヤーは「時代の鏡」で古物に触れ、時間・価値・記憶の断片を読み取ります。ひび割れた翡翠のペンダント、血に染まった絵画、黒地に金の招待状が、三人のヒロインの物語を紐解き、ルート分岐・感情インタラクション・収束エンディングを形作ります。</span><span data-en>Players use the Mirror of Ages: touch an antique to read its time, value, and memory fragments. A cracked jade pendant, a blood-stained painting, and a black-and-gold invitation each unlock a heroine’s arc — branching narratives, emotional interaction, and a convergent ending.</span></p>
+      <div class="gallery g4">
+        <img src="assets/zgy-poster.jpg" alt="Mirror of Ages — poster / 時代の鏡 ポスター" loading="lazy">
+        <img src="assets/zgy-storyboard-web.jpg" alt="Mirror of Ages — storyboard / 時代の鏡 絵コンテ" loading="lazy">
+        <img src="assets/zgy-character-board.jpg" alt="Mirror of Ages — character board / 時代の鏡 キャラクターボード" loading="lazy">
+        <img src="assets/antique-room-web.jpg" alt="Mirror of Ages — antique room / 時代の鏡 古物の部屋" loading="lazy">
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- AI Pipeline -->
+<section id="pipeline">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow gold"><span data-ja>AIパイプライン</span><span data-en>AI Pipeline</span></span>
+      <h2 class="title"><span data-ja>AIパイプラインを日常制作に組み込む。概念で終わらせない。</span><span data-en>AI in daily production — not stuck at the concept stage.</span></h2>
+      <p class="lede"><span data-ja>標準化された5ステップのAI制作パイプラインが、脚本から素材検証までを一気通貫でカバー。週次でプロトタイプを回し、量産の品質と速度を同時に引き上げます。</span><span data-en>A standardized five-step AI production pipeline covers script-to-asset work end to end. Weekly prototyping raises both quality and velocity at production scale.</span></p>
+    </div>
+    <div class="pipe">
+      <div class="step"><div class="i">01</div><h3><span data-ja>脚本分解</span><span data-en>Script Breakdown</span></h3><p><span data-ja>40話構成を60秒単位へ細分化。</span><span data-en>A 40-episode structure broken into 60-second units.</span></p></div>
+      <div class="step"><div class="i">02</div><h3><span data-ja>絵コンテ＋キャラクターボード</span><span data-en>Storyboard + Character Boards</span></h3><p><span data-ja>絵コンテ・キャラ・小道具を先行して揃える。</span><span data-en>Storyboards, characters, and props aligned up front.</span></p></div>
+      <div class="step"><div class="i">03</div><h3><span data-ja>動画スライス</span><span data-en>Video Slicing</span></h3><p><span data-ja>縦型クリップで配信ペースに最適化。</span><span data-en>Vertical clips tuned to delivery cadence.</span></p></div>
+      <div class="step"><div class="i">04</div><h3><span data-ja>アセット管理</span><span data-en>Asset Management</span></h3><p><span data-ja>キャラ／シーン／小道具／FXを一元管理。</span><span data-en>Characters, scenes, props, and FX in one catalogue.</span></p></div>
+      <div class="step"><div class="i">05</div><h3><span data-ja>リリース前レビュー</span><span data-en>Pre-Launch Review</span></h3><p><span data-ja>3回のレビューでブロッカーを早期に発見。</span><span data-en>Three review rounds surface blockers early.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Cooperation -->
+<section id="cooperation">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span data-ja>協業モデル</span><span data-en>Partnership Models</span></span>
+      <h2 class="title"><span data-ja>4つの協業のかたち。</span><span data-en>Four ways to partner.</span></h2>
+      <p class="lede"><span data-ja>パブリッシャー、IP保有者、プラットフォーム——それぞれに最適な関わり方を選べます。</span><span data-en>Publishers, IP holders, and platforms — choose the engagement model that fits.</span></p>
+    </div>
+    <div class="modes">
+      <div class="mode">
+        <div class="code">OEM</div>
+        <h3><span data-ja>受託開発</span><span data-en>Custom Development</span></h3>
+        <p><span data-ja>フルサイクルの受託開発。著作権は提携先に帰属します。海外パブリッシャー向けのOEM開発、多地域ローカライズ、リリース準備まで対応します。</span><span data-en>Full-cycle custom development with IP rights assigned to the partner. Covers OEM builds for overseas publishers, multi-region localization, and launch packaging.</span></p>
+      </div>
+      <div class="mode">
+        <div class="code">CO</div>
+        <h3><span data-ja>共同開発</span><span data-en>Co-Development</span></h3>
+        <p><span data-ja>双方で開発コストを分担し、合意した比率で収益を分配。新規タイトルの方向性をともに検証したいパブリッシャーに最適です。</span><span data-en>Shared development costs and a revenue split by agreement. Ideal for publishers who want to jointly validate a new title direction.</span></p>
+      </div>
+      <div class="mode">
+        <div class="code">IP</div>
+        <h3><span data-ja>IPライセンス・翻案</span><span data-en>IP Licensing &amp; Adaptation</span></h3>
+        <p><span data-ja>映像・アニメ・カードゲーム・インタラクティブノベルのIPゲーム化。コンテンツ監修、ローカライズ、マネタイズ設計までカバーします。</span><span data-en>Adapt film, anime, card-game, and interactive-novel IP into games — covering content supervision, localization, and monetization design.</span></p>
+      </div>
+      <div class="mode">
+        <div class="code">MOD</div>
+        <h3><span data-ja>モジュール外注</span><span data-en>Modular Outsourcing</span></h3>
+        <p><span data-ja>プログラム、アートアセット、UI/UX、ビルドとパッケージング、ストアクリエイティブ、広告素材の反復制作を、必要に応じて請け負います。</span><span data-en>On-demand engineering, art, UI/UX, build and packaging, store creatives, and ad-asset iteration — as modular scopes you can plug in when needed.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow gold"><span data-ja>お問い合わせ</span><span data-en>Contact</span></span>
+      <h2 class="title"><span data-ja>共に、次のヒットを作りませんか。</span><span data-en>Let’s build the next hit — together.</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-row">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <div><div class="t"><span data-ja>メール</span><span data-en>Email</span></div><div class="v"><a href="mailto:contact@dreamplaylab.com">contact@dreamplaylab.com</a></div></div>
+        </div>
+        <div class="info-row">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><div class="t"><span data-ja>所在地（本店）</span><span data-en>Registered HQ</span></div><div class="v"><span data-ja>〒543-0023 大阪府大阪市天王寺区味原町1番17号503号室</span><span data-en>1-17-503 Ajiharacho, Tennoji-ku, Osaka 543-0023, Japan</span></div></div>
+        </div>
+        <div class="info-row">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+          <div><div class="t"><span data-ja>対応言語</span><span data-en>Languages</span></div><div class="v"><span data-ja>日本語 · English</span><span data-en>Japanese · English</span></div></div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3><span data-ja>協業のご相談</span><span data-en>Partnership Inquiry</span></h3>
+        <p class="sub"><span data-ja>以下をご入力いただくと、送信用メール本文が自動生成されます。</span><span data-en>Fill in the fields to generate a ready-to-send email draft.</span></p>
+        <form id="inquiry-form" novalidate>
+          <div class="field">
+            <label for="f-company"><span data-ja>貴社名</span><span data-en>Company</span></label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" data-ja-ph="例）〇〇株式会社" data-en-ph="e.g. Acme Inc.">
+          </div>
+          <div class="field">
+            <label for="f-email"><span data-ja>ご連絡先メール</span><span data-en>Your email</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder="name@company.com">
+          </div>
+          <div class="field">
+            <label for="f-intent"><span data-ja>ご関心</span><span data-en>Interest</span></label>
+            <select id="f-intent" name="intent">
+              <option value="" data-ja="— 関心のある項目をお選びください —" data-en="— Select an option —">— 関心のある項目をお選びください —</option>
+              <option value="OEM" data-ja="OEM · 受託開発" data-en="OEM · Custom Development">OEM · 受託開発</option>
+              <option value="CO" data-ja="CO · 共同開発" data-en="CO · Co-Development">CO · 共同開発</option>
+              <option value="IP" data-ja="IP · ライセンス・翻案" data-en="IP · Licensing &amp; Adaptation">IP · ライセンス・翻案</option>
+              <option value="MOD" data-ja="MOD · モジュール外注" data-en="MOD · Modular Outsourcing">MOD · モジュール外注</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="mail-draft"><span data-ja>生成されたメール本文</span><span data-en>Generated email body</span></label>
+            <textarea class="mail-draft" id="mail-draft" readonly></textarea>
+          </div>
+          <div class="form-actions">
+            <a class="btn btn-primary" id="mail-open" href="mailto:contact@dreamplaylab.com"><span data-ja>メールアプリを開く</span><span data-en>Open mail client</span></a>
+          </div>
+          <p class="form-note"><span data-ja>※ 送信補助です。実際の送信前に内容をご確認ください。</span><span data-en>※ Draft helper only — please review before sending.</span></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <img src="assets/dreamplay-logo-mark.png" alt="DreamPlay logo">
+      <span>株式会社ドリームプレイ · DreamPlay Inc.</span>
+    </div>
+    <p class="foot-copy">
+      <span data-ja>© 2026 株式会社ドリームプレイ（DreamPlay Inc.）。ゲーム開発、グローバルパブリッシング協業、AIインタラクティブコンテンツ制作に注力しています。</span>
+      <span data-en>© 2026 DreamPlay Inc. — focused on game development, global publishing partnerships, and AI interactive content.</span>
+    </p>
+  <p class="foot-site">
+      <span data-ja>会社・事業情報は</span><span data-en>Company &amp; business:</span> <a href="https://dreamplaylab.com/">dreamplaylab.com</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+window.DP_MAIL = {
+  recipient: "contact@dreamplaylab.com",
+  draft: "#mail-draft",
+  openBtn: "#mail-open",
+  fields: { company: "#f-company", email: "#f-email", intent: "#f-intent" },
+  ja: {
+    subjectPrefix: "【協業のご相談】",
+    defaultSubject: "ドリームプレイ",
+    salutation: ["株式会社ドリームプレイ ご担当者様"],
+    message: "協業についてご相談したく、ご連絡いたしました。ご都合のよいときにご返信いただけますと幸いです。",
+    closing: "何卒よろしくお願いいたします。",
+    labels: { company: "貴社名", email: "返信先", intent: "ご関心" }
+  },
+  en: {
+    subjectPrefix: "[Partnership Inquiry] ",
+    defaultSubject: "DreamPlay",
+    salutation: ["Hello DreamPlay team,"],
+    message: "We would like to discuss a potential partnership and would appreciate your reply at your convenience.",
+    closing: "Best regards,",
+    labels: { company: "Company", email: "Reply-to", intent: "Interest" }
+  }
+};
+</script>
+<script src="assets/lang.js" defer></script>
+<script src="assets/maildraft.js" defer></script>
+</body>
+</html>

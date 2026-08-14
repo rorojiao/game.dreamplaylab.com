@@ -112,7 +112,7 @@
   .lang-switch button{
     background:none;border:none;color:var(--muted);
     font-family:var(--font-mono);font-size:12px;font-weight:600;
-    padding:8px 14px;border-radius:7px;cursor:pointer;transition:all .18s ease;letter-spacing:.04em;min-height:36px;min-width:44px;
+    padding:8px 14px;border-radius:7px;cursor:pointer;transition:all .18s ease;letter-spacing:.04em;min-height:40px;min-width:44px;
   }
   .lang-switch button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
   .lang-switch button.active{background:var(--cyan);color:#0a1020}
@@ -183,6 +183,20 @@
     section{padding:52px 0}
     .form-card{padding:22px 18px}
     .btn{width:100%;justify-content:center}
+    /* 移动端品牌栏：品牌名单行显示（CJK 允许任意断行，nowrap + 流式字号避免末尾单字孤行） */
+    .nav-inner{gap:12px}
+    .brand{gap:10px;min-width:0}
+    .brand img{width:30px;height:30px}
+    .brand span{font-size:clamp(11px,3.8vw,15px);white-space:nowrap}
+    .brand small{font-size:9.5px;letter-spacing:.12em}
+    .lang-switch button{padding:8px 10px;min-width:40px}
+  }
+  @media (max-width:350px){
+    /* 极窄屏（≤350px）进一步收紧，保持单行且不横向溢出 */
+    .brand{gap:8px}
+    .brand img{width:26px;height:26px}
+    .brand span{font-size:clamp(10.5px,3.4vw,13px)}
+    .lang-switch button{padding:8px 8px;min-width:38px}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}

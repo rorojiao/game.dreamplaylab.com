@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0c1322">
+<meta name="robots" content="noindex">
+<title>404 — ページが見つかりません | DreamPlay Inc. Games</title>
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<style>
+  /* DreamPlay shared brand tokens — single source for both sites.
+     Injected by scripts/build.mjs at the tokens marker comment in each site's <style>.
+     Hex equivalents kept as comments for audits against specs/dreamplay-sites/design.md. */
+  :root{
+    /* 暗色主题设计 token（沿用 ezjoygames oklch 体系） */
+    --bg: oklch(14.6% 0.020 268.3);        /* #0A0F1C 深色主背景 */
+    --surface: oklch(21.0% 0.017 248.7);   /* #18212D 内容表面 */
+    --surface-2: oklch(25.5% 0.026 256);
+    --fg: oklch(95.8% 0.015 77.1);
+    --muted: oklch(77.8% 0.026 263.3);
+    --border: oklch(34.6% 0.043 273.2 / 0.6);
+    --accent: oklch(65.0% 0.240 15.0);     /* 品牌红 */
+    --cyan: oklch(81.9% 0.128 222.0);      /* #67D5FF AI、链接与主要行动色 */
+    --mint: oklch(79.3% 0.124 171.2);      /* #86D9C1 可验证状态、流程完成 */
+    --gold: oklch(77.0% 0.113 84.1);       /* #E1BE69 会议重点、阶段编号、游戏强调 */
+    --pink: oklch(69.8% 0.210 352.0);      /* 互动 · 粉 */
+    --font-display: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "PingFang SC", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+    --max: 1120px;
+    --header-h: 68px;
+    color-scheme: dark;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100svh;display:grid;place-items:center;padding:32px;
+    background:
+      radial-gradient(110% 85% at 82% 12%, oklch(81.9% 0.128 222.0 / 0.14), transparent 55%),
+      radial-gradient(80% 60% at 8% 88%, oklch(77.0% 0.113 84.1 / 0.10), transparent 60%),
+      var(--bg);
+    color:var(--fg);font-family:var(--font-body);line-height:1.6;text-align:center;
+  }
+  .card{max-width:560px}
+  .logo{width:72px;height:72px;margin:0 auto 26px;border-radius:16px;display:block}
+  .code{font-family:var(--font-mono);font-size:13px;letter-spacing:.32em;color:var(--cyan);font-weight:700;margin-bottom:18px}
+  h1{font-family:var(--font-display);font-size:clamp(24px,4.6vw,34px);font-weight:800;line-height:1.35;letter-spacing:-.01em}
+  h1 .gold{color:var(--gold)}
+  .en{margin-top:10px;color:var(--muted);font-size:15px}
+  p{margin-top:18px;color:var(--muted);font-size:14.5px}
+  .actions{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  a.btn{
+    display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;
+    font-weight:600;font-size:15px;font-family:var(--font-body);text-decoration:none;min-height:44px;
+  }
+  a.btn:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+  .primary{background:var(--cyan);color:#0a1020}
+  .primary:hover{box-shadow:0 10px 30px oklch(81.9% 0.128 222.0 / 0.35)}
+  .ghost{background:var(--surface);color:var(--fg);border:1px solid var(--border)}
+  .ghost:hover{border-color:var(--gold)}
+  .foot{margin-top:40px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="logo" src="assets/dreamplay-logo-mark.png" alt="DreamPlay logo">
+  <p class="code">404 — PAGE NOT FOUND</p>
+  <h1>お探しのページは<span class="gold">見つかりません</span>でした。</h1>
+  <p class="en">The page you are looking for was not found.</p>
+  <p>アドレスが変わったか、ページが移動・削除された可能性があります。<br>The address may have changed, or the page may have moved.</p>
+  <div class="actions">
+    <a class="btn primary" href="/">トップページへ戻る</a>
+    <a class="btn ghost" href="https://dreamplaylab.com/">会社・事業サイト</a>
+  </div>
+  <p class="foot">株式会社ドリームプレイ · DREAMPLAY INC. · GAME.DREAMPLAYLAB.COM</p>
+</main>
+</body>
+</html>

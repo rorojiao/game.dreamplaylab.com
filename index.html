@@ -205,6 +205,61 @@
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   }
 
+  /* ===== Motion Pack（2026-08-15，两站共享）=====
+     设计原则：商务级克制——transform/opacity only、300–800ms、同屏最多一次入场；
+     交互反馈（ripple/sheen）即时；氛围光效缓慢低幅；全部让位于 prefers-reduced-motion。 */
+
+  /* —— 1) 滚动入场（JS 加 .reveal，进入视口加 .in）—— */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* —— 2) Hero 首屏编排：eyebrow → h1 → lede → CTA 依次浮现 —— */
+  @keyframes dpRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .hero .eyebrow{animation:dpRise .65s .05s cubic-bezier(.22,.61,.36,1) both}
+  .hero h1{animation:dpRise .75s .16s cubic-bezier(.22,.61,.36,1) both}
+  .hero .hero-lede{animation:dpRise .75s .3s cubic-bezier(.22,.61,.36,1) both}
+  .hero .hero-cta{animation:dpRise .75s .44s cubic-bezier(.22,.61,.36,1) both}
+
+  /* —— 3) 氛围光效：hero 渐变缓慢漂移 + 标题渐变流光 —— */
+  @keyframes dpDrift{from{transform:scale(1)}to{transform:scale(1.05) translate(-1.2%,1.2%)}}
+  .hero-bg{animation:dpDrift 16s ease-in-out infinite alternate}
+  @keyframes dpGlowShift{from{background-position:0% 0}to{background-position:100% 0}}
+  .hero h1 .glow{background-size:220% 100%;animation:dpGlowShift 7s ease-in-out infinite alternate}
+
+  /* —— 4) 光标跟随辉光（JS 注入 .fx-cursor-glow，仅精确指针）—— */
+  .fx-cursor-glow{
+    position:absolute;width:520px;height:520px;border-radius:50%;
+    left:0;top:0;transform:translate3d(-999px,-999px,0);opacity:0;
+    background:radial-gradient(circle, oklch(81.9% .128 222.0 / .10), transparent 62%);
+    pointer-events:none;z-index:0;transition:opacity .5s ease;will-change:transform;
+  }
+
+  /* —— 5) 按钮气氛：主按钮悬停光泽扫过 + hero 主 CTA 呼吸辉光 —— */
+  .btn{overflow:hidden}
+  .btn-primary{position:relative}
+  .btn-primary::after{
+    content:"";position:absolute;top:0;left:-90%;width:55%;height:100%;
+    background:linear-gradient(105deg, transparent, oklch(100% 0 0 / .32), transparent);
+    transform:skewX(-20deg);transition:left .65s ease;pointer-events:none;
+  }
+  .btn-primary:hover::after,.btn-primary:focus-visible::after{left:135%}
+  @keyframes dpBtnGlow{0%,100%{box-shadow:0 0 0 0 oklch(81.9% .128 222.0 / 0)}50%{box-shadow:0 6px 26px 0 oklch(81.9% .128 222.0 / .25)}}
+  .hero .btn-primary{animation:dpBtnGlow 3.4s ease-in-out infinite}
+  .hero .btn-primary:hover,.hero .btn-primary:focus-visible{animation:none}
+
+  /* —— 6) 点击涟漪（JS 注入 .fx-ripple）—— */
+  .lang-switch button{position:relative;overflow:hidden}
+  .fx-ripple{position:absolute;border-radius:50%;background:oklch(100% 0 0 / .28);transform:scale(0);animation:dpRipple .55s ease-out forwards;pointer-events:none}
+  @keyframes dpRipple{to{transform:scale(3.4);opacity:0}}
+
+  /* —— 7) 流程连线绘制（首卡入场后画线，corporate）—— */
+  @keyframes dpDrawLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .steps:has(.fstep.in)::before{animation:dpDrawLine 1s .25s cubic-bezier(.4,0,.2,1) both}
+
+  /* —— 8) 导航滚动态：下滚后背景加深 —— */
+  .nav{transition:background .3s ease, box-shadow .3s ease}
+  .nav.scrolled{background:oklch(12.2% .018 268.3 / .92);box-shadow:0 8px 28px oklch(0% 0 0 / .35)}
+
   /* —— Hero —— */
   .hero{position:relative;overflow:hidden;padding:88px 0 80px}
   .hero-bg{
@@ -573,5 +628,6 @@ window.DP_MAIL = {
 </script>
 <script src="assets/lang.js" defer></script>
 <script src="assets/maildraft.js" defer></script>
+<script src="assets/fx.js" defer></script>
 </body>
 </html>

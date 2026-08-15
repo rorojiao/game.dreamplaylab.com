@@ -29,7 +29,7 @@
     var REVEAL = [
       ".section-head", ".help-note", ".coop-note", ".boundary-note",
       ".help-grid > *", ".focus-grid > *", ".proof-grid > *",
-      ".modes > *", ".pipe > *", ".steps > *", ".rhythm-grid > *",
+      ".modes > *", ".pipe > *", ".steps > *", ".rhythm-grid > *", ".demo-grid > *",
       ".world", ".gallery > *", ".contact-info > *", ".form-card", ".nuri-panel"
     ].join(",");
     var els = document.querySelectorAll(REVEAL);

@@ -121,6 +121,95 @@
   .lang-switch button.active{background:var(--cyan);color:#0a1020}
   .lang-switch button:not(.active):hover{color:var(--fg)}
 
+  /* —— Nav dropdown（2026-08-16：主导航子菜单，点击展开→子项跳转）—— */
+  .nav-item{position:relative;display:inline-flex}
+  .nav-item > .nav-parent::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--cyan);transition:width .25s}
+  .nav-item.open > .nav-parent{color:var(--fg)}
+  .nav-item.open > .nav-parent::after{width:100%}
+  .nav-caret{width:10px;height:10px;margin-left:4px;opacity:.65;transition:transform .25s ease;flex-shrink:0}
+  .nav-item.open .nav-caret{transform:rotate(180deg)}
+  .nav-drop{
+    position:absolute;top:calc(100% + 14px);left:50%;
+    transform:translateX(-50%) translateY(-8px) scale(.98);transform-origin:top center;
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .22s ease,transform .22s ease,visibility .22s;
+    min-width:300px;max-width:min(88vw,380px);
+    background:oklch(16.5% 0.020 268.3 / 0.94);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border:1px solid var(--border);border-radius:14px;padding:10px;
+    box-shadow:0 20px 52px oklch(0% 0 0 / .5);
+  }
+  .nav-drop::before{
+    content:"";position:absolute;top:-5.5px;left:50%;transform:translateX(-50%) rotate(45deg);
+    width:10px;height:10px;background:oklch(16.5% 0.020 268.3 / 0.94);
+    border-left:1px solid var(--border);border-top:1px solid var(--border);
+  }
+  .nav-item.open > .nav-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)}
+  .drop-link{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:10px;transition:background .18s ease}
+  .drop-link:hover,.drop-link:focus-visible{background:oklch(81.9% 0.128 222.0 / 0.08);outline:none}
+  .drop-link .dl-num{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--gold);margin-top:2px;min-width:18px}
+  .drop-link b{display:block;font-size:13.5px;font-weight:600;color:var(--fg);line-height:1.45;font-family:var(--font-display)}
+  .drop-link small{display:block;margin-top:3px;font-size:11.5px;color:var(--muted);line-height:1.55}
+  .drop-link .dl-ext{color:var(--cyan);font-family:var(--font-mono);font-size:12px;margin-top:2px}
+  /* 子项 stagger 入场 */
+  .nav-drop .drop-link{opacity:0;transform:translateY(-6px);transition:opacity .28s ease,transform .28s ease,background .18s ease}
+  .nav-item.open .drop-link{opacity:1;transform:none}
+  .nav-item.open .drop-link:nth-child(1){transition-delay:.03s}
+  .nav-item.open .drop-link:nth-child(2){transition-delay:.07s}
+  .nav-item.open .drop-link:nth-child(3){transition-delay:.11s}
+  .nav-item.open .drop-link:nth-child(4){transition-delay:.15s}
+  .nav-item.open .drop-link:nth-child(5){transition-delay:.19s}
+
+  /* —— 移动端抽屉（≤720px 与 nav-links 互换；JS 生成，no-JS 不渲染）—— */
+  .nav-burger{display:none}
+  .nav-drawer{
+    position:fixed;top:var(--header-h);left:0;right:0;z-index:49;
+    background:oklch(14% 0.020 268.3 / 0.97);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+    max-height:calc(100dvh - var(--header-h));overflow-y:auto;
+    padding:8px 18px 24px;
+    opacity:0;visibility:hidden;transform:translateY(-10px);
+    transition:opacity .28s ease,transform .28s ease,visibility .28s;
+  }
+  .nav-drawer.open{opacity:1;visibility:visible;transform:none}
+  .drawer-row{border-bottom:1px solid oklch(34.6% 0.043 273.2 / 0.35)}
+  .drawer-row:last-child{border-bottom:none}
+  .drawer-parent{
+    display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;
+    min-height:52px;background:none;border:none;color:var(--fg);
+    font-size:15.5px;font-weight:600;font-family:var(--font-display);
+    cursor:pointer;padding:8px 2px;text-align:left;
+  }
+  .drawer-parent:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px}
+  .drawer-row.open .drawer-parent .nav-caret{transform:rotate(180deg)}
+  .drawer-sub{overflow:hidden;max-height:0;transition:max-height .32s ease}
+  .drawer-sub a{
+    display:flex;align-items:baseline;gap:10px;
+    padding:12px 2px 12px 14px;margin:2px 0 10px;
+    border-left:2px solid var(--cyan);font-size:13.5px;color:var(--muted);min-height:44px;
+  }
+  .drawer-sub a:hover{color:var(--fg)}
+  .drawer-sub a .dl-num{font-family:var(--font-mono);font-size:10.5px;color:var(--gold)}
+  .drawer-sub a .dl-ext{color:var(--cyan);font-family:var(--font-mono);font-size:11.5px}
+  .drawer-plain{display:flex;align-items:center;min-height:52px;font-size:15.5px;font-weight:600;font-family:var(--font-display);color:var(--fg)}
+  @media (max-width:720px){
+    .nav-links{display:none}
+    .nav-burger{
+      display:inline-flex;flex-direction:column;justify-content:center;gap:5px;
+      width:44px;height:44px;padding:11px;background:var(--surface);
+      border:1px solid var(--border);border-radius:10px;cursor:pointer;
+    }
+    .nav-burger span{display:block;width:100%;height:2px;background:var(--fg);border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+    .nav-burger:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+    .nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .nav-drop,.nav-drop .drop-link,.nav-caret,.nav-drawer,.drawer-sub,.nav-burger span{transition:none!important}
+  }
+
   /* —— 按钮 —— */
   .btn{
     display:inline-flex;align-items:center;gap:8px;
@@ -360,7 +449,7 @@
       <span>株式会社ドリームプレイ<small>DreamPlay Inc.</small></span>
     </a>
     <div class="nav-links">
-      <a href="#capabilities"><span data-ja>制作と協働</span><span data-en>Capabilities</span></a>
+      <a href="#capabilities"><span data-ja>制作と協業</span><span data-en>Capabilities</span></a>
       <a href="#products"><span data-ja>製品ライン</span><span data-en>Product Lines</span></a>
       <a href="#pipeline"><span data-ja>AIワークフロー</span><span data-en>AI Workflow</span></a>
       <a href="#cooperation"><span data-ja>協業のかたち</span><span data-en>Partnerships</span></a>
@@ -397,9 +486,9 @@
 <section id="capabilities">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow gold"><span data-ja>制作と協働</span><span data-en>CAPABILITIES</span></span>
-      <h2 class="title"><span data-ja>制作と協働の取り組みをご覧ください。</span><span data-en>Explore our work in practice.</span></h2>
-      <p class="lede"><span data-ja>このページには、現在進めている2つの製品ラインの素材と制作プロセスをそのまま掲載しています。企画・制作・協働のそれぞれの関わり方の参考にしていただければ幸いです。</span><span data-en>This page shows the materials and production process of our two product lines as they stand today — a reference for how we might work together in planning, production, or collaboration.</span></p>
+      <span class="eyebrow gold"><span data-ja>制作と協業</span><span data-en>CAPABILITIES</span></span>
+      <h2 class="title"><span data-ja>制作と協業の取り組みをご覧ください。</span><span data-en>Explore our work in practice.</span></h2>
+      <p class="lede"><span data-ja>このページには、現在進めている2つの製品ラインの素材と制作プロセスをそのまま掲載しています。企画・制作・協業のそれぞれの関わり方の参考にしていただければ幸いです。</span><span data-en>This page shows the materials and production process of our two product lines as they stand today — a reference for how we might work together in planning, production, or collaboration.</span></p>
     </div>
     <div class="proof-grid">
       <div class="metric">
@@ -419,7 +508,7 @@
       </div>
       <div class="metric">
         <div class="v">04</div>
-        <div class="k"><span data-ja>日本語・英語での協働</span><span data-en>Bilingual collaboration</span></div>
+        <div class="k"><span data-ja>日本語・英語での協業</span><span data-en>Bilingual collaboration</span></div>
         <div class="note"><span data-ja>お打ち合わせは日本語・英語で対応します。素材や公開ページを2つの言語でそろえる制作にも取り組んでいます（このサイトも日英でご覧いただけます）。</span><span data-en>We work in Japanese and English, and prepare materials and pages in both languages — this site itself is presented in both.</span></div>
       </div>
     </div>
